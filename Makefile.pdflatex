@@ -1,8 +1,10 @@
-# Set this to one or more main LaTeX files (e.g. those with \documentclass) 
+# Set this to one or more main LaTeX files (e.g. those with \documentclass)
 # for a specific build. Leave blank to build all files having an uncommented
 # \documentclass.
-MAIN=	
+MAIN=
 
+# WARNING: If you have multiply defined labels, your bibliography WILL get
+# fucked up.
 
 ###########################################################################
 #                 MAKE NO EDITS BELOW (except to debug)                   #
@@ -13,7 +15,7 @@ MAIN=
 #
 # This is the PDFLATEX makefile, no support for ps/eps/dvi.
 #
-# Originally based on 
+# Originally based on
 #   http://www.acoustics.hut.fi/u/mairas/UltimateLatexMakefile/Makefile
 # but redeveloped by JG. Reuse by changing just the first line to list
 # the main LaTeX source file.
@@ -28,7 +30,7 @@ MAIN=
 # - Works for files with bibliographies, and files without.
 
 ifndef MAIN
-MAIN:=	$(shell egrep -l "^[^%]*\documentclass" *.tex)	
+MAIN:=	$(shell egrep -l "^[^%]*\documentclass" *.tex)
 endif
 
 ALLTEX:=$(shell ls *.tex)
